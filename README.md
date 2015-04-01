@@ -1,5 +1,5 @@
 # JavaCardDeck
-Coding assignment for R/GA
+
 JavaCardDeck Implemented features:.
 1). Shuffling with Collections shuffle method (lazy).
 2). Shuffling with implementation by permutation inside array.
