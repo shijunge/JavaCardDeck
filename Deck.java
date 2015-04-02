@@ -6,15 +6,33 @@ import java.util.Random;
 
 
 public class Deck {
-	public enum RANK {A,B,C,D,E,F,G,H,I,O,J,Q,K};
+	class Rank{
+		private int ordinal;
+		private String name;
+		public Rank(int ordinal, String name){
+			this.ordinal=ordinal;
+			this.name=name;
+		}
+		public int ordinal(){
+			return this.ordinal;
+		}
+		public String name(){
+			return this.name;
+		}
+	}
+	public String [] names= {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+	private Rank[] ranks=new Rank[13];
 	public enum SUIT {DIAMONDS, CLUBS, HEARTS, SPADES};
 	
 	private ArrayList<Card> cardDeck;
 	
 	public Deck(){
+		for(int i=0; i<names.length; i++){
+			ranks[i]=new Rank(i,names[i]);
+		}
 		cardDeck=new ArrayList<Card>();
 		for(SUIT s: SUIT.values() ){
-			for (RANK r: RANK.values()){
+			for (Rank r: ranks){
 				cardDeck.add(new Card(s.ordinal(),s.name(), r.ordinal(),r.name()));
 			}
 		}
